@@ -11,9 +11,36 @@ for (let i = 0; i < nilai.length; i++) {
     if (nilai[i].innerText === "+") {
       angka1 = inputBox.value;
       inputBox.value = "0";
+      operasi = "+";
+    } else if (nilai[i].innerText === "-") {
+      angka1 = inputBox.value;
+      operasi = "-";
+      inputBox.value = "0";
+    } else if (nilai[i].innerText === "*") {
+      angka1 = inputBox.value;
+      inputBox.value = 0;
+      operasi = "*";
+    } else if (nilai[i].innerText === "/") {
+      angka1 = inputBox.value;
+      inputBox.value = 0;
+      operasi = "/";
     } else if (nilai[i].innerText === "=") {
       angka2 = inputBox.value;
-      inputBox.value = parseInt(angka1) + parseInt(angka2);
+      if (operasi === "+") {
+        inputBox.value = parseInt(angka1) + parseInt(angka2);
+      }
+
+      if (operasi === "-") {
+        inputBox.value = parseInt(angka1) - parseInt(angka2);
+      }
+
+      if (operasi === "*") {
+        inputBox.value = parseInt(angka1) * parseInt(angka2);
+      }
+
+      if (operasi === "/") {
+        inputBox.value = parseInt(angka1) / parseInt(angka2);
+      }
     } else {
       if (inputBox.value === "0") {
         inputBox.value = nilai[i].innerText;
